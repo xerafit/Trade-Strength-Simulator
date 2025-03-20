@@ -13,7 +13,7 @@ local function ensureSlotOneSelected()
 
     local backpack = player:FindFirstChild("Backpack")
     if backpack then
-        local slotOneTool = backpack:FindFirstChildOfClass("Tool")
+        local slotOneTool = backpack:WaitForChild("Weight")
         if slotOneTool and not player.Character:FindFirstChildOfClass("Tool") then
             player.Character.Humanoid:EquipTool(slotOneTool)
         end
