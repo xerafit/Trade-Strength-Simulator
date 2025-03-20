@@ -9,16 +9,22 @@ local running = false local box2Running = false local box3Running = false local 
 
 local function ensureSlotOneSelected()
     local player = game.Players.LocalPlayer
-    if not player.Character then return end
+    if not player.Character or not player.Character:FindFirstChild("Humanoid") then return end
 
+    local humanoid = player.Character.Humanoid
     local backpack = player:FindFirstChild("Backpack")
+    
     if backpack then
-        local slotOneTool = backpack:WaitForChild("Weight")
-        if slotOneTool and not player.Character:FindFirstChildOfClass("Tool") then
-            player.Character.Humanoid:EquipTool(slotOneTool)
+        local slotOneTool = backpack:FindFirstChild("Weight")
+
+        if slotOneTool and not player.Character:FindFirstChild("Weight") then
+            humanoid:UnequipTools()
+            task.wait(0.1)
+            humanoid:EquipTool(slotOneTool)
         end
     end
 end
+
 
 local autoSelectRunning = false
 
