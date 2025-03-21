@@ -1,9 +1,11 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("MAIN", "DarkTheme")
-local Farming = Window:NewTab("Farming")
-local StopFarming = Window:NewTab("Stop Farming")
-local Boxes = Window:NewTab("Boxes")
-local StopBoxes = Window:NewTab("Stop Boxes")
+local Farm = Window:NewTab("Farming")
+local Farming = Farm:NewSection("Farming")
+local StopFarming = Farm:NewSection("Stop Farming")
+local Box = Window:NewTab("Boxes")
+local Boxes = Box:NewSection("Boxes")
+local StopBoxes = Box:NewSection("Stop Boxes")
 
 local sac1Running = false local sac2Running = false local sac3Running = false local sac4Running = false  local asc1Running = false local asc2Running = false local asc3Running = false local asc4Running = false
 local running = false local box2Running = false local box3Running = false local box5Running = false local box6Running = false local box7Running = false local box8Running = false
